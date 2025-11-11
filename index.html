@@ -161,19 +161,18 @@
 <script>
     // Accordion Animation
     document.querySelectorAll('.accordion-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const content = btn.nextElementSibling;
-            if(content.classList.contains('max-h-0')) {
-                content.classList.remove('max-h-0','p-0');
-                content.classList.add('p-4');
-                content.style.maxHeight = content.scrollHeight + "px";
-            } else {
-                content.style.maxHeight = null;
-                content.classList.add('max-h-0','p-0');
-                content.classList.remove('p-4');
-            }
-        });
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        if(content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            content.style.maxHeight = content.scrollHeight + "px"; // expand to full
+        } else {
+            content.style.maxHeight = "0px";
+            setTimeout(() => content.classList.add('hidden'), 300); // hide after animation
+        }
     });
+});
+
 </script>
 
 </body>
