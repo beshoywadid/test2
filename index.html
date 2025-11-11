@@ -1,11 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIP - Lecture 3</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+/* Accordion smooth animation */
+.accordion-content {
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  overflow: hidden;
+}
+</style>
 </head>
-<body>
-    
+<body class="bg-gradient-to-b from-gray-50 to-gray-100 font-sans text-gray-900">
+
+<header class="bg-gradient-to-r from-pink-600 to-orange-500 text-white p-6 text-center shadow-lg">
+    <h1 class="text-3xl font-bold">Digital Image Processing - Lecture 3</h1>
+    <p class="mt-1 text-lg">Dr. Maie Mahmoud Aboghzalah</p>
+</header>
+
+<main class="max-w-6xl mx-auto p-6 space-y-6">
+
+    <!-- Accordion Section -->
+    <section>
+        <h2 class="text-2xl font-semibold mb-4 text-pink-700">Lecture Content</h2>
+        <div id="accordion" class="space-y-3">
+
+            <!-- Image Enhancement -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Image Enhancement
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Image enhancement manipulates images to make them more suitable for a specific application:</p>
+                    <ul class="list-disc ml-5">
+                        <li>Highlighting interesting details.</li>
+                        <li>Removing noise.</li>
+                        <li>Making images visually appealing.</li>
+                        <li>Techniques are problem-oriented.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Spatial Domain Enhancement -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Spatial Domain Enhancement
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Most spatial domain operations can be reduced to:</p>
+                    <p class="italic">g(x,y) = T[f(x,y)]</p>
+                    <p>Where f(x,y) is input image, g(x,y) is processed image, and T is an operator over a neighborhood of (x,y).</p>
+                </div>
+            </div>
+
+            <!-- Point Processing -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Point Processing
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Simplest spatial domain operation when neighborhood is just the pixel itself:</p>
+                    <p class="italic">s = T(r)</p>
+                    <p>s = processed pixel, r = original pixel</p>
+                </div>
+            </div>
+
+            <!-- Intensity Transformations -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Intensity Transformation Functions
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <ul class="list-disc ml-5">
+                        <li>Linear: negative, identity transformation.</li>
+                        <li>Logarithmic: log and inverse-log.</li>
+                        <li>Power-law (gamma): s = c * r^γ</li>
+                        <li>Contrast stretching: Thresholding functions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Piecewise Linear Transformation -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Piecewise Linear Transformation
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <ul class="list-disc ml-5">
+                        <li>Contrast stretching: increases dynamic range.</li>
+                        <li>Intensity-level slicing: highlight specific ranges.</li>
+                        <li>Bit-plane slicing: isolates bits to highlight details.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Histogram Processing -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Histogram Processing
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Histogram: graph of gray level occurrence in the image.</p>
+                    <ul class="list-disc ml-5">
+                        <li>Histogram equalization: adjusts intensities to enhance contrast.</li>
+                        <li>Histogram matching (specification): generate output image with specified histogram.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Spatial Filtering -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Fundamentals of Spatial Filtering
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Spatial filtering applies operations over a neighborhood of pixels:</p>
+                    <ul class="list-disc ml-5">
+                        <li>Neighborhood: small rectangle over the image.</li>
+                        <li>Predefined operation produces new pixel at center.</li>
+                        <li>Types: Linear & Nonlinear filtering.</li>
+                        <li>Handling borders: ignore edges or pad with zeros.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Spatial Correlation & Convolution -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Spatial Correlation & Convolution
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <p>Correlation: move filter mask over image, sum of products at each location.</p>
+                    <p>Convolution: same as correlation but mask is rotated 180°.</p>
+                </div>
+            </div>
+
+            <!-- Smoothing Spatial Filters -->
+            <div class="border border-gray-300 rounded shadow-sm">
+                <button class="w-full text-left p-4 bg-pink-100 hover:bg-pink-200 focus:outline-none font-medium accordion-button">
+                    Smoothing Spatial Filters / Noise Reduction
+                </button>
+                <div class="accordion-content max-h-0 p-0 bg-white space-y-2">
+                    <ul class="list-disc ml-5">
+                        <li>Used for blurring and noise reduction.</li>
+                        <li>Low-pass filters: smooth image, reduce noise, obscure fine details.</li>
+                        <li>Linear smoothing: averaging (box, weighted).</li>
+                        <li>Nonlinear smoothing: order-statistic filters like median, min, max.</li>
+                        <li>Median filter effective for salt-and-pepper noise.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<script>
+    // Accordion Animation
+    document.querySelectorAll('.accordion-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const content = btn.nextElementSibling;
+            if(content.classList.contains('max-h-0')) {
+                content.classList.remove('max-h-0','p-0');
+                content.classList.add('p-4');
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+                content.classList.add('max-h-0','p-0');
+                content.classList.remove('p-4');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
